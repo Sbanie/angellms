@@ -1,0 +1,59 @@
+{% extends "user/layout.html"%}
+
+{% block content %}
+<div class="container">
+    <h1 class="text-center my-3">
+       File Report
+    </h1>
+    <div class="row d-flex justify-content-center">
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+            {% with messages=get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+            {% for category,message in messages %}
+            <div class="alert alert-{{category}}">
+                <strong>{{message}}</strong>
+            </div>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+            <div class="card">
+                <div class="card-body">
+                    <form action="" method="POST">
+                        <div class="my-2">
+                            <label for=""><b>Campus</b></label>
+                            <select name="campus" id="campus">
+                                <option value="ritson">Ritson</option>
+                                <option value="ml sultan">ML Sultan</option>
+                                <option value="steve biko">Steve Biko</option>
+                                <option value="city campas">City Campus</option>
+                              </select>
+                 
+                        </div>
+                        <div class="my-2">
+                            <label for=""><b>Building Block</b></label>
+                            <select name="block" id="block">
+                                <option value="D10">D10</option>
+                                <option value="M01">Mansfield</option>
+                                <option value="S2">S2 Block</option>
+                                <option value="S3">S3 Block</option>
+                              </select>
+                         
+                        </div>
+                        <div class="my-2">
+                            <label for=""><b>Faulty Description</b></label>
+                            <input type="text" name="description" id="description" class="form-control my-1">
+                        </div>
+                        <div class="my-2">
+                            <label for=""><b>Date</b></label>
+                            <input type="date" name="Date" id="Date" class="form-control my-1">
+                        </div>
+                       
+                        <button class="btn btn-success">File</button>
+                       
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
